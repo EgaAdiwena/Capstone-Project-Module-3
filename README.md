@@ -27,9 +27,8 @@ Untuk menjawab permasalahan dan mengimplementasi tujuan yang didapat, saya mende
 **Evaluation Matrix**
 
 1.   MAE (Mean Absolute Error)
-2.   MAPE (Mean Absolute Percentage Error)
-3.   RMSE (Root Mean Squared Error)
-4.   R-Squared
+2.   RMSE (Root Mean Squared Error)
+3.   R-Squared
 
 # **Data Preprocessing**
 
@@ -42,17 +41,21 @@ Untuk menjawab permasalahan dan mengimplementasi tujuan yang didapat, saya mende
 
 # **Data Modeling**
 
-1.   Encoding : One Hot (Gear_type, Origin, Options) and Binary (Type, Region, Make)
-2.   Train and splitting : Split data into train with testing proportion of 70 : 30
-3.   Modeling : Linear Regression, KNN Regressor, Decision Tree Regressor, Random Forest Regressor, and XG Boost Regressor
+1.   Train and Splitting : Split data into train with testing proportion of 70 : 30
+2.   Encoding : One Hot (Gear_type, Origin, Options) and Binary (Type, Region, Make)
+4.   Modeling : Linear Regression, SVR, KNN, Decision Tree, Random Forest, Gradient Boost, XG Boost, LGBM Regressor
 
 # **Conclusion**
 
-1.   Model prediksi yang kami kembangkan telah berhasil memetakan harga mobil bekas dalam rentang 11.000 - 185.000 SAR. Model ini dapat digunakan sebagai input dalam sistem pendukung keputusan untuk transaksi jual beli mobil bekas.
-2.   Besarnya nilai RMSE menunjukkan tingkat ketidakpastian model dalam memprediksi harga mobil bekas. Rata-rata, prediksi model dapat menyimpang sebesar 17.532 SAR dari harga sebenarnya.
-3.   Analisis terhadap hasil model menunjukkan bahwa fitur 'Make', 'Engine Size', dan 'Year' memiliki kontribusi signifikan terhadap akurasi prediksi harga mobil bekas. Setelah dilakukan tuning hyperparameter, model berhasil mencapai nilai RMSE sebesar 17.523, MAE sebesar 11.476, dan MAPE sebesar 0,1937. 
-4.   Nilai-nilai tersebut mengindikasikan performa model yang cukup baik.
+1.   Hasil dari model menunjukkan bahwa performa terbaik pada test set dicapai oleh Base Model LightGBM, dengan nilai RMSE sebesar 29,339, MAE sebesar 13,771, dan R² sebesar 0.804. Evaluasi dilakukan menggunakan metrik RMSE (Root Mean Square Error), MAE (Mean Absolute Error), dan R² (Koefisien Determinasi).
+2.   Nilai RMSE sebesar 29,339 mengindikasikan bahwa rata-rata kesalahan prediksi model berada pada selisih sekitar 29,339 satuan dari nilai sebenarnya. Nilai MAE sebesar 13,771 menunjukkan rata-rata kesalahan absolut prediksi model. Sedangkan R² sebesar 0.804 berarti model mampu menjelaskan 80,4% variabilitas data target pada test set, yang menunjukkan generalisasi model yang cukup baik.
+3.   Meskipun performa test set Base Model lebih baik dibandingkan GridSearchCV dan RandomizedSearchCV, terdapat perbedaan cukup besar antara performa training (R²: 0.925) dan test set (R²: 0.804). Hal ini mengindikasikan model mungkin sedikit overfitting terhadap data training.
+4.   Model saat ini sudah mencapai hasil yang cukup baik dalam memprediksi target pada test set. Namun, terdapat potensi peningkatan performa dengan melakukan eksplorasi fitur tambahan atau penyetelan hyperparameter yang lebih lanjut.
 
 # **Recommendations**
 
-1.   Ana
+1.   Penambahan Fitur Relevan : Menambahkan fitur tambahan yang dapat membantu model memahami lebih baik hubungan dengan target, seperti fitur interaksi antara spesifikasi tertentu (misalnya, lokasi atau kategori data tambahan yang relevan). Hal ini dapat membantu model menangkap pola-pola penting yang mungkin belum ditangkap sepenuhnya.
+2.   Analisis Residual Error : Melakukan analisis pada residual error (selisih antara prediksi dan nilai aktual) untuk mengidentifikasi pola error, seperti underestimation atau overestimation, pada subkelompok tertentu. Dengan analisis ini, model dapat disesuaikan lebih baik untuk data tersebut.
+3.   Cross-Validation yang Lebih Mendalam : Meningkatkan proses validasi dengan menggunakan teknik cross-validation yang lebih kuat, seperti k-fold dengan variasi stratifikasi, untuk mendapatkan estimasi performa model yang lebih stabil dan mengurangi kemungkinan hasil bias dari dataset.
+4.   Eksplorasi Model Lain : Mencoba pendekatan algoritma lain yang mungkin lebih sesuai, seperti CatBoost, yang dapat menangani dataset dan hyperparameter dengan lebih efektif.
+5.   Optimisasi Hyperparameter : Melakukan penyetelan hyperparameter lebih lanjut menggunakan pendekatan yang lebih luas, seperti Bayesian Optimization, untuk mengeksplorasi kombinasi hyperparameter terbaik tanpa overfitting.
