@@ -6,13 +6,13 @@ by : Ega Adiwena
 
 # **Saudi Arabia Used Cars**
 
+# **Background**
+
 Pasar mobil bekas di Arab Saudi sedang mengalami pertumbuhan yang signifikan. Diperkirakan bernilai USD 6,41 miliar pada tahun 2024, pasar ini diproyeksikan mencapai USD 9,03 miliar pada tahun 2029, dengan CAGR lebih dari 7,10% selama periode perkiraan.
 
 Digitalisasi yang pesat di Arab Saudi, dengan penetrasi internet mencapai 98,6% populasi, telah mengubah lanskap pasar mobil bekas.. Transaksi peer-to-peer dan lelang online semakin populer, menyederhanakan proses jual beli.
 
 https://www.mordorintelligence.com/industry-reports/saudi-arabia-used-car-market
-
-# **Background**
 
 **Problem Statement :**
 
